@@ -1,0 +1,255 @@
+.saved-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* COLLECTION WRAPPER */
+.collection {
+  margin-bottom: 25px;
+}
+
+.collection-title {
+  margin: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* GRID giống archive */
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 0 10px;
+}
+
+/* ITEM */
+.collection-item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* IMAGE & VIDEO */
+.collection-item img,
+.collection-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+.collection-item:hover img,
+.collection-item:hover video {
+  transform: scale(1.05);
+}
+
+/* OVERLAY DATE */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 6px;
+  font-size: 12px;
+  color: white;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.6),
+    transparent
+  );
+}
+
+/* 3 chấm collection */
+.dots {
+  cursor: pointer;
+  position: relative;
+  font-size: 18px;
+  padding: 4px;
+  background-color: transparent;
+}
+
+/* =========================
+   POST 3 DOTS (IMPORTANT FIX)
+   ========================= */
+
+.post-dots {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+
+  z-index: 10;
+
+  width: 26px;
+  height: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+
+  font-size: 16px;
+  cursor: pointer;
+
+  opacity: 0;
+  transition: 0.2s;
+}
+
+/* show on hover */
+.collection-item:hover .post-dots {
+  opacity: 1;
+}
+
+/* =========================
+   MENU DROPDOWN
+   ========================= */
+
+.menu {
+  position: absolute;
+  right: 0;
+  top: 28px;
+  color: black;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 200px;
+  font-size: 15px;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* khoảng cách icon và chữ */
+}
+
+.menu div {
+  padding: 2px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.menu div:hover {
+  background: #f5f5f5;
+  color: #0866ff;
+}
+.collection-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px;
+}
+
+.collection-dots-inline {
+  position: relative;
+  cursor: pointer;
+
+  font-size: 18px;
+  padding: 2px 6px;
+
+  border-radius: 6px;
+}
+
+.collection-dots-inline:hover {
+  background: #f2f2f2;
+}
+.rename-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+}
+
+.rename-modal {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rename-input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.rename-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* NO MEDIA POST PREVIEW CARD */
+.no-media-post {
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  padding-bottom: 40px; /* Space for the overlay date */
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.no-media-post::before {
+  content: "“";
+  position: absolute;
+  top: -10px;
+  right: 12px;
+  font-size: 64px;
+  font-family: Georgia, serif;
+  color: rgba(148, 163, 184, 0.15); /* slate-400 with opacity */
+  line-height: 1;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.collection-item:hover .no-media-post {
+  transform: scale(1.05);
+}
+
+.no-media-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a; /* slate-900 */
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+.no-media-content {
+  font-size: 12px;
+  color: #475569; /* slate-600 */
+  margin: 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
